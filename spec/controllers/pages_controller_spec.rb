@@ -5,7 +5,7 @@ RSpec.describe PagesController, type: :controller do
   render_views
 
   before (:each) do
-    @base_title = "Simple App du Tutoriel Ruby on Rails"
+    @base_title = "Simple App du Tutoriel Ruby on Rails |"
   end
   
   describe "GET #home" do
@@ -18,7 +18,7 @@ RSpec.describe PagesController, type: :controller do
       get :home
       expect(response.body).to have_selector('title',
         :visible => false,
-        :text => @base_title + " | Accueil"
+        :text => @base_title + " Accueil"
         )
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe PagesController, type: :controller do
       get :contact
       expect(response.body).to have_selector('title',
         :visible => false,
-        :text => @base_title + " | Contact"
+        :text => @base_title + " Contact"
       )
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe PagesController, type: :controller do
       get :about
       expect(response.body).to have_selector('title',
         :visible => false,
-        :text => @base_title + " | À Propos"
+        :text => @base_title + " À Propos"
       )
     end  
   end
@@ -58,7 +58,7 @@ RSpec.describe PagesController, type: :controller do
       get :help
       expect(response.body).to have_selector('title',
       :visible => false,
-      :text => @base_title + " | Aide"
+      :text => @base_title + " Aide"
       )
     end
   end
