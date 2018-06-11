@@ -4,9 +4,9 @@ require 'spec_helper'
 
 
 RSpec.describe "LayoutLinks", type: :request do
-
+  
   before (:each) do
-    @base_title = "Simple App du Tutoriel Ruby on Rails |"
+    @base_title = "Simple App du Tutoriel Ruby on Rails | "
   end
 
   describe "GET /layout_links" do
@@ -46,6 +46,14 @@ RSpec.describe "LayoutLinks", type: :request do
   	expect(response).to have_selector('title',
       :visible => false, 
       :text => @base_title + "Aide"
+      )
+  end
+
+  it "devrait affichier une page signup à '/signup'" do
+    get '/signup'
+    expect(response).to have_selector('title',
+      :visible => false, 
+      :text => @base_title + "Inscription"
       )
   end
 
